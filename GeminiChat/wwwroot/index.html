@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <title>ChatBot & Dashboard</title>
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <!-- Chart.js + Showdown -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/showdown/dist/showdown.min.js"></script>
+</head>
+
+<body>
+  <header>
+    <h1>ChatBot & Dashboard</h1>
+    <button id="btn-chat" class="active">Chat</button>
+    <button id="btn-dash">Dashboard</button>
+  </header>
+
+  <main>
+    <!-- Chat pane -->
+    <section id="pane-chat">
+      <div id="chat"></div>
+      <div id="chat-controls">
+        <input  id="chat-input" placeholder="Gõ câu hỏi..." autocomplete="off" />
+        <button id="chat-send">Gửi</button>
+      </div>
+    </section>
+
+    <!-- Dashboard pane -->
+    <section id="pane-dash">
+      <!-- Line 1 -->
+      <div id="line1-section" class="line-section">
+        <h2>Line 1</h2>
+        <div class="controls">
+          Chọn Order:
+          <select id="sel-line1"></select>
+        </div>
+        <div class="charts">
+          <div class="chart-card">
+            <h3>OEE theo trạm</h3>
+            <canvas id="chart-line1-oee"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>Good / Scrap</h3>
+            <canvas id="chart-line1-gs"></canvas>
+          </div>
+        </div>
+        <div class="tabs">
+          <button class="tab active" data-chart="count">Error Count</button>
+          <button class="tab"        data-chart="avgdur">Avg. Duration</button>
+          <button class="tab"        data-chart="trend">Trend Over Time</button>
+          <button class="tab"        data-chart="hist">Duration Dist.</button>
+        </div>
+        <div class="chart-error-container">
+          <canvas id="chart-error-line1" class="chart-error-canvas"></canvas>
+        </div>
+      </div>
+      
+      <!-- Line 2 -->
+      <div id="line2-section" class="line-section">
+        <h2>Line 2</h2>
+        <div class="controls">
+          Chọn Order:
+          <select id="sel-line2"></select>
+        </div>
+        <div class="charts">
+          <div class="chart-card">
+            <h3>OEE theo trạm</h3>
+            <canvas id="chart-line2-oee"></canvas>
+          </div>
+          <div class="chart-card">
+            <h3>Good / Scrap</h3>
+            <canvas id="chart-line2-gs"></canvas>
+          </div>
+        </div>
+          <div class="tabs">
+          <button class="tab active" data-chart="count">Error Count</button>
+          <button class="tab"        data-chart="avgdur">Avg. Duration</button>
+          <button class="tab"        data-chart="trend">Trend Over Time</button>
+          <button class="tab"        data-chart="hist">Duration Dist.</button>
+        </div>
+        <div class="chart-error-container">
+          <canvas id="chart-error-line2" class="chart-error-canvas"></canvas>
+        </div>
+      </div>
+
+<div id="orderlogs-section" class="dashboard-section">
+      <h2>Order Logs</h2>
+      <div class="tabs" data-section="orderlogs">
+        <button class="tab active" data-chart="throughput">Throughput/Day</button>
+        <button class="tab"        data-chart="byline">By Line</button>
+        <button class="tab"        data-chart="planactual">Plan vs Actual</button>
+        <button class="tab"        data-chart="material">By Material</button>
+      </div>
+      <div class="chart-error-container">
+        <canvas id="chart-orderlogs" class="chart-orderlogs-canvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Pending Orders Section -->
+    <div id="pending-section" class="dashboard-section">
+      <h2>Pending Orders</h2>
+      <div class="tabs" data-section="pending">
+        <button class="tab active" data-chart="bymaterial">By Material</button>
+        <button class="tab"        data-chart="byuom">By UoM</button>
+        <button class="tab"        data-chart="qtyrange">Qty Ranges</button>
+        <button class="tab" data-chart="materialqty">Qty by Material</button>
+        <button class="tab"        data-chart="totalqty">Total Planned QTY</button>
+      </div>
+      <div class="chart-error-container">
+        <canvas id="chart-pending" class="chart-pending-canvas"></canvas>
+      </div>
+    </div>
+
+    </section>
+  </main>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+# ====================
+# Visual Studio
+# ====================
+.vs/
+*.user
+*.suo
+
+# ====================
+# Build outputs
+# ====================
+bin/
+obj/
+Debug/
+Release/
+*.dll
+*.exe
+*.pdb
+
+# ====================
+# Temporary files
+# ====================
+*.log
+*.tmp
+
+# ====================
+# Secrets / Config
+# ====================
+.env
+appsettings.Development.json
+secrets.json
+appsettings.json
+
+# ====================
+# OS-generated files
+# ====================
+.DS_Store
+Thumbs.db

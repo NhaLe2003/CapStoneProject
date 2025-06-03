@@ -1,0 +1,24 @@
+﻿To determine the station with the highest OEE value, I need to iterate through all the stations in the provided data and compare their OEE values.
+
+Here's the breakdown:
+
+*   **Order 0007, Line1:** OEE is "NaN" for all stations.
+*   **Order 0015, Line2:** OEE is "NaN" for all stations.
+*   **Order 0008, Line1:**
+    *   Blowmolder: 40.27777862548828
+    *   Washer: 40.27777862548828
+    *   Filler: 41.3194465637207
+    *   Capper: 41.31945037841797
+    *   Labeler: 40.97222137451172
+    *   Printer: 40.97222137451172
+    *   Packer: 40.972225189208984
+*   **Order 0016, Line2:**
+    *   Blowmolder: 40.625
+    *   Washer: 40.624996185302734
+    *   Filler: 40.625
+    *   Capper: 41.666664123535156
+    *   Labeler: 41.66666793823242
+    *   Printer: 41.66666793823242
+    *   Packer: 40.624996185302734
+
+Therefore, the stations with the highest OEE values are Capper, Labeler, and Printer from order 0016, Line2, with an OEE of 41.66666.
